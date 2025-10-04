@@ -12,11 +12,5 @@ target_include_directories(shell-app PUBLIC
   ${CMAKE_SOURCE_DIR}/include
 )
 
-# Any dependent libraires needed to build this target.
-target_link_libraries(shell-app PUBLIC -static
-  # list of libraries
-  myLib1
-  myLib2
-  )
 
   

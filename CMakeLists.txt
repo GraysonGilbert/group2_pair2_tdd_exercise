@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(scratch)
+project(group2_pair2_tdd_exercise)
 
 #
 # GoogleTest Setup
@@ -88,7 +88,7 @@ endif()
 # ref: https://iamsorush.com/posts/cpp-cmake-essential/
 # ref: https://cmake.org/cmake/help/latest/guide/tutorial/index.html
 #
-add_subdirectory(libs)
+
 add_subdirectory(app)
 add_subdirectory(test)
 
@@ -96,7 +96,6 @@ add_subdirectory(test)
 doxygen_add_docs(docs           # target name
   # List of files or directories
   ${PROJECT_SOURCE_DIR}/app
-  ${PROJECT_SOURCE_DIR}/libs
   ${PROJECT_SOURCE_DIR}/include
   )
 
@@ -112,6 +111,13 @@ if(WANT_COVERAGE)
       "app/main.cpp"     # Unit test does not run app, so don't analyze it
       "*gtest*"          # Don't analyze googleTest code
       "/usr/include/*"   # Don't analyze system headers
+
+    # Added ignore flags to allows for coverage report to build
+    LCOV_ARGS
+    --ignore-errors mismatch
+    --ignore-errors empty
+    --ignore-errors gcov
+    --ignore-errors unused
     )
 
   # code coverage for the app (shell-app):
