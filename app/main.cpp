@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author Grayson Gilbert (ggilbert@umd.edu)
- * @brief 
+ * @brief Example implementation for the PIDController class
  * @version 0.1
  * @date 2025-10-05
  * 

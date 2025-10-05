@@ -1,3 +1,15 @@
+/**
+ * @file pid_controller_test.cpp
+ * @author Grayson Gilbert (ggilbert@umd.edu)
+ * @brief Test cases for the PIDController class
+ * @version 0.1
+ * @date 2025-10-05
+ * 
+ * @copyright Copyright (c) 2025
+ * 
+ */
+
+ 
 #include <gtest/gtest.h>
 #include "pid_controller.hpp"
 
