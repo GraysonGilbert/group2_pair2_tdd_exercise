@@ -11,6 +11,7 @@
 
  
 #include <gtest/gtest.h>
+#include <stdexcept>
 #include "pid_controller.hpp"
 
 
@@ -149,4 +150,21 @@ TEST(PIDControllerTest4, FullPIDTest) {
 	double second_output = controller.compute(4.0, 2.0);
 	EXPECT_DOUBLE_EQ(second_output, 4.0);
 
+}
+
+
+// Test case to avoid operation with zero dt
+TEST(PIDControllerTest5, ThrowsOnZeroDt) {
+	
+	EXPECT_THROW(
+		PIDController controller(1.0, 0.5, 2.0, 0.0),
+		std::invalid_argument);
+}
+
+// Test case to avoid operation with negative dt
+TEST(PIDControllerTest6, ThrowsOnNegativeDt) {
+	
+	EXPECT_THROW(
+		PIDController controller(1.0, 0.5, 2.0, -0.1),
+		std::invalid_argument);
 }

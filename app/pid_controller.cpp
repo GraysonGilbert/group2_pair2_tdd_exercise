@@ -12,8 +12,8 @@
 #include <pid_controller.hpp>
 
 // Construct a PID Controller
-PIDController::PIDController(double kp, double ki, double kd, double dt)
-    : kp_(kp), ki_(ki), kd_(kd), dt_(dt), previous_error_(0.0), integral_error_(0.0) {}
+PIDController::PIDController(const double kp, const double ki, const double kd, const double dt, const double min, const double max)
+    : kp_(kp), ki_(ki), kd_(kd), dt_(dt), min_(min), max_(max), previous_error_(0.0), integral_error_(0.0) {}
 
 
 // Compute the PID control output value
