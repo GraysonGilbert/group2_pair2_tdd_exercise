@@ -104,13 +104,14 @@ if(WANT_COVERAGE)
   # unit test coverage:
   setup_target_for_coverage_lcov ( # use lcov to generate coverage report
     NAME test_coverage          # target name
-    EXECUTABLE ctest || true    # what to run insdie the build directory?
+    EXECUTABLE pid-cpp-test || true    # what to run inside the build directory?
                                  #   '|| true' --> continue coverage even if ctest failed
-    # EXECUTABLE ctest     # what to run insdie the build directory?
+    # EXECUTABLE ctest     # what to run inside the build directory?
     EXCLUDE
-      "app/main.cpp"     # Unit test does not run app, so don't analyze it
-      "*gtest*"          # Don't analyze googleTest code
-      "/usr/include/*"   # Don't analyze system headers
+      "app/main.cpp"            # Unit test does not run app, so don't analyze it
+      "app/pid_controller.cpp"  # Unit test does not run app, so don't analyze it
+      "*gtest*"                 # Don't analyze googleTest code
+      "/usr/include/*"          # Don't analyze system headers
 
     # Added ignore flags to allows for coverage report to build
     LCOV_ARGS
@@ -124,10 +125,10 @@ if(WANT_COVERAGE)
   # Use gcovr insetad of lcov if you want to see branch coverage as well
   setup_target_for_coverage_gcovr_html ( # use gcovr to generate coverage report
     NAME app_coverage          # target name
-    EXECUTABLE shell-app       # what to run insdie the build directory?
+    EXECUTABLE pid_controller_example       # what to run insdie the build directory?
     EXCLUDE
-    "test/test.cpp"    # App does not run unit test, so don't analyze it
-    "test/main.cpp"    # App does not run unit test, so don't analyze it
+    "test/pid_controller_test.cpp"    # App does not run unit test, so don't analyze it
+    "test/main.cpp"                   # App does not run unit test, so don't analyze it
     )
 
 endif()
