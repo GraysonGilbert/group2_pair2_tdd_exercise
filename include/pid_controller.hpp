@@ -34,7 +34,7 @@ class PIDController {
      * @param measured_value - The current measured value of the system
      * @return double - Returns the output control value for the next iteration of the control loop
      */
-    double compute(double setpoint, double measured_value);
+    double compute(double set_point, double measured_value);
 
     private:
 

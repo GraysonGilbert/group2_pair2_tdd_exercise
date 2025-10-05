@@ -23,7 +23,7 @@ int main() {
   double kd{0.1};
   double dt{0.1};
 
-  double setpoint{5.0};
+  double set_point{5.0};
   double measured_value{0.0};
 
   // PID Control output
@@ -36,7 +36,7 @@ int main() {
 
   PIDController pid_controller(kp, ki, kd, dt);
 
-  output = pid_controller.compute(setpoint, measured_value);
+  output = pid_controller.compute(set_point, measured_value);
 
   std::cout << "\nPID Control output value: " << output << "\n\n";
 

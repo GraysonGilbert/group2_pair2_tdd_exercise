@@ -17,7 +17,7 @@ PIDController::PIDController(double kp, double ki, double kd, double dt)
 
 
 // Compute the PID control output value
-double PIDController::compute(double setpoint, double measured_value){
+double PIDController::compute(double set_point, double measured_value){
 
     // Current stub implementation
 
