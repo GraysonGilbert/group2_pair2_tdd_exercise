@@ -31,7 +31,7 @@ jobs:
   build-run-upload:
     # Create a container of the latest Ubuntu, other values could be
     # ubuntu-latest, ubuntu-22.04, etc.
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     steps:
       # We want to use GitHub CI checkout version 3 to check out our branch
