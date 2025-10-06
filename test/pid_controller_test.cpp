@@ -168,3 +168,51 @@ TEST(PIDControllerTest6, ThrowsOnNegativeDt) {
 		PIDController controller(1.0, 0.5, 2.0, -0.1),
 		std::invalid_argument);
 }
+
+/*=========== Upper Bound Controller Test ===========
+
+Gains: kp = 5.0, ki = 0.0, kd = 0.0
+Time interval = 1.0
+Set Point = 10.0
+Measured Value = 0.0
+
+Solve for Proportional Output:
+Proportional Output -> Kp * error
+Error -> 10.0 - 0.0 = 10.0
+
+Proportional Output = 5.0 * 10.0 = 50.0
+
+Max Output -> 10.0
+
+Control will be capped at 10.0 due to exceeding upper bound
+*/
+
+TEST(PIDControllerTest7, TestUpperBound) {
+	PIDController controller(5.0, 0.0, 0.0, 1.0, 0.0, 10.0);
+	double output = controller.compute(10, 0.0);
+	EXPECT_DOUBLE_EQ(output, 10.0);
+}
+
+/*=========== Lower Bound Controller Test ===========
+
+Gains: kp = 5.0, ki = 0.0, kd = 0.0
+Time interval = 1.0
+Set Point = 0.0
+Measured Value = 10.0
+
+Solve for Proportional Output:
+Proportional Output -> Kp * error
+Error -> 0.0 - 10.0 = -10.0
+
+Proportional Output = 5.0 * -10.0 = -50.0
+
+Min Output -> -10.0
+
+Control will be capped at -10.0 due to exceeding lower bound
+*/
+
+TEST(PIDControllerTest8, TestLowerBound) {
+	PIDController controller(5.0, 0.0, 0.0, 1.0, -10.0, 10.0);
+	double output = controller.compute(0.0, 10.0);
+	EXPECT_DOUBLE_EQ(output, -10.0);
+}
