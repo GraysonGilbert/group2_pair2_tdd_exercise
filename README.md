@@ -5,6 +5,62 @@
 Driver: Grayson Gilbert  
 Navigator: Siddhant Deshmukh  
 
+## Part 2 Roles:
+Driver: Tirth Sadaria  
+Navigator: Aakash Dammala
+
+## Part 2 Implementation Summary:
+
+### Design Review Discussion
+The design provided by Pair 1 (Grayson Gilbert & Siddhant Deshmukh) was well-structured with:
+- Clear class interface with public `compute()` method
+- Private helper methods for modular calculation of P, I, and D components
+- Appropriate use of member variables to track state (integral_error, previous_error)
+- Comprehensive test suite covering all edge cases
+
+### Implementation Approach
+Following TDD principles, we implemented the PID controller in logical commits:
+
+1. **Implemented helper methods** - Created the three component calculation methods (proportional, integral, derivative)
+2. **Completed compute method** - Integrated all components with error calculation and output clamping
+3. **Added input validation** - Implemented dt parameter validation to prevent division by zero
+
+### Key Implementation Details
+- **Proportional component**: `kp * error`
+- **Integral component**: Accumulates error over time using `integral_error += error * dt`, returns `ki * integral_error`
+- **Derivative component**: Calculates rate of change `kd * (error - previous_error) / dt`
+- **Output clamping**: Ensures output stays within [min, max] bounds
+- **Input validation**: Throws `std::invalid_argument` for non-positive dt values
+- **Default bounds**: Changed from [0.0, 10.0] to [-100.0, 100.0] to accommodate negative control outputs
+
+### Test Results
+All 8 unit tests pass successfully:
+- ✅ Proportional controller test
+- ✅ Integral controller test  
+- ✅ Derivative controller test
+- ✅ Full PID controller test
+- ✅ Zero dt validation test
+- ✅ Negative dt validation test
+- ✅ Upper bound clamping test
+- ✅ Lower bound clamping test
+
+### Code Quality
+- **Cppcheck**: No issues found (output in `cppcheck_output.txt`)
+- **Code coverage**: Available via CodeCov badge above
+- **Documentation**: All methods documented with Doxygen-style comments
+
+### Additional Tests Recommended
+Based on our review, we recommend adding:
+- [ ] Test for integral windup prevention
+- [ ] Test for setpoint changes during operation
+- [ ] Test for large dt values
+- [ ] Performance test for control loop timing
+
+### TODO Items
+- Consider adding anti-windup mechanism for integral component
+- Add reset() method to clear integral and derivative state
+- Consider making min/max bounds mutable for runtime adjustment
+
 ## Standard install via command-line:
 ```bash
 # Download the code:
