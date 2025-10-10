@@ -1,8 +1,9 @@
 # C++ Test Driven Development Exercise: PID Controller Implementation
 ![CICD Workflow status](https://github.com/GraysonGilbert/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/GraysonGilbert/group2_pair2_tdd_exercise/graph/badge.svg?token=9BMMT6K9FG)](https://codecov.io/gh/GraysonGilbert/group2_pair2_tdd_exercise) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![CICD Workflow status](https://github.com/TirthSadaria/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/TirthSadaria/group2_pair2_tdd_exercise/branch/main/graph/badge.svg)](https://codecov.io/gh/TirthSadaria/group2_pair2_tdd_exercise) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-
+Part-2 Badges
+[![codecov](https://codecov.io/gh/TirthSadaria/group2_pair2_tdd_exercise/branch/impl-pid-controller/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/TirthSadaria/group2_pair2_tdd_exercise)
+[![Run Unit Test and Upload Coverage Report](https://github.com/TirthSadaria/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg?branch=impl-pid-controller)](https://github.com/TirthSadaria/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml)
 
 
 ## Part 1 Roles:
