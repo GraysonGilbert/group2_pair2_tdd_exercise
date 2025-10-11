@@ -1,9 +1,12 @@
 /**
  * @file pid_controller.hpp
- * @author Grayson Gilbert (ggilbert@umd.edu)
+ * @author Grayson Gilbert (ggilbert@umd.edu) - Part 1 (Driver)
+ * @author Siddhant Deshmukh (siddhantd@umd.edu) - Part 1 (Navigator)
+ * @author Tirth Sadaria (tirths@umd.edu) - Part 2  (Driver)
+ * @author Aakash Dammala (aakashd@umd.edu) - Part 2 (Navigator)
  * @brief Header file for PIDController class
- * @version 0.1
- * @date 2025-10-05
+ * @version 0.2
+ * @date 2025-10-09
  * 
  * @copyright Copyright (c) 2025
  * 
@@ -24,16 +27,16 @@ class PIDController {
      * @param ki_ - Integral gain
      * @param kd_ - Derivative gain
      * @param dt_ - Loop time interval
-     * @param min - Minimum output provided by the controller
-     * @param max - Maximum output provided by the controller
+     * @param min_ - Minimum output provided by the controller
+     * @param max_ - Maximum output provided by the controller
      */
-    PIDController(const double kp_, const double ki_, const double kd_, const double dt_, const double min_ = 0.0, const double max_ = 10.0);
+    PIDController(const double kp_, const double ki_, const double kd_, const double dt_, const double min_ = -100.0, const double max_ = 100.0);
 
 
     /**
      * @brief Computes the next PID control output value
      * 
-     * @param setpoint - The desired value to be reached
+     * @param set_point - The desired value to be reached
      * @param measured_value - The current measured value of the system
      * @return double - Returns the output control value for the next iteration of the control loop
      */
