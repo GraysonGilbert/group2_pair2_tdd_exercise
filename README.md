@@ -1,9 +1,70 @@
 # C++ Test Driven Development Exercise: PID Controller Implementation
 ![CICD Workflow status](https://github.com/GraysonGilbert/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg) [![codecov](https://codecov.io/gh/GraysonGilbert/group2_pair2_tdd_exercise/graph/badge.svg?token=9BMMT6K9FG)](https://codecov.io/gh/GraysonGilbert/group2_pair2_tdd_exercise) [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+Part-2 Badges
+[![codecov](https://codecov.io/gh/TirthSadaria/group2_pair2_tdd_exercise/branch/impl-pid-controller/graph/badge.svg?token=YOUR_CODECOV_TOKEN)](https://codecov.io/gh/TirthSadaria/group2_pair2_tdd_exercise)
+[![Run Unit Test and Upload Coverage Report](https://github.com/TirthSadaria/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml/badge.svg?branch=impl-pid-controller)](https://github.com/TirthSadaria/group2_pair2_tdd_exercise/actions/workflows/run-unit-test-and-upload-codecov.yml)
+
+
 ## Part 1 Roles:
 Driver: Grayson Gilbert  
 Navigator: Siddhant Deshmukh  
+
+## Part 2 Roles:
+Driver: Tirth Sadaria  
+Navigator: Aakash Dammala
+
+## Part 2 Implementation Summary:
+
+### Design Review Discussion
+The design provided by Pair 1 (Grayson Gilbert & Siddhant Deshmukh) was well-structured with:
+- Clear class interface with public `compute()` method
+- Private helper methods for modular calculation of P, I, and D components
+- Appropriate use of member variables to track state (integral_error, previous_error)
+- Comprehensive test suite covering all edge cases
+
+### Implementation Approach
+Following TDD principles, we implemented the PID controller in logical commits:
+
+1. **Implemented helper methods** - Created the three component calculation methods (proportional, integral, derivative)
+2. **Completed compute method** - Integrated all components with error calculation and output clamping
+3. **Added input validation** - Implemented dt parameter validation to prevent division by zero
+
+### Key Implementation Details
+- **Proportional component**: `kp * error`
+- **Integral component**: Accumulates error over time using `integral_error += error * dt`, returns `ki * integral_error`
+- **Derivative component**: Calculates rate of change `kd * (error - previous_error) / dt`
+- **Output clamping**: Ensures output stays within [min, max] bounds
+- **Input validation**: Throws `std::invalid_argument` for non-positive dt values
+- **Default bounds**: Changed from [0.0, 10.0] to [-100.0, 100.0] to accommodate negative control outputs
+
+### Test Results
+All 8 unit tests pass successfully:
+- ✅ Proportional controller test
+- ✅ Integral controller test  
+- ✅ Derivative controller test
+- ✅ Full PID controller test
+- ✅ Zero dt validation test
+- ✅ Negative dt validation test
+- ✅ Upper bound clamping test
+- ✅ Lower bound clamping test
+
+### Code Quality
+- **Cppcheck**: No issues found (output in `cppcheck_output.txt`)
+- **Code coverage**: Available via CodeCov badge above
+- **Documentation**: All methods documented with Doxygen-style comments
+
+### Additional Tests Recommended
+Based on our review, we recommend adding:
+- [ ] Test for integral windup prevention
+- [ ] Test for setpoint changes during operation
+- [ ] Test for large dt values
+- [ ] Performance test for control loop timing
+
+### TODO Items
+- Consider adding anti-windup mechanism for integral component
+- Add reset() method to clear integral and derivative state
+- Consider making min/max bounds mutable for runtime adjustment
 
 ## Standard install via command-line:
 ```bash
