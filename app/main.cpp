@@ -1,9 +1,9 @@
 /**
  * @file main.cpp
  * @author Grayson Gilbert (ggilbert@umd.edu) - Part 1 (Driver)
- * @author Siddhant Deshmukh (siddhantd@umd.edu) - Part 1 (Navigator)
- * @author Tirth Sadaria (tirths@umd.edu) - Part 2  (Driver)
- * @author Aakash Dammala (aakashd@umd.edu) - Part 2 (Navigator)
+ * @author Siddhant Deshmukh (iamsid@umd.edu @umd.edu) - Part 1 (Navigator)
+ * @author Tirth Sadaria (tsadaria@umd.edu) - Part 2  (Driver)
+ * @author Aakash Dammala (asd@umd.edu) - Part 2 (Navigator)
  * @brief Example implementation for the PIDController class
  * @version 0.2
  * @date 2025-10-09
